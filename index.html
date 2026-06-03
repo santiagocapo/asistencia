@@ -250,9 +250,9 @@
 // CONFIGURACIÓN JSONBIN
 // ══════════════════════════════════════════
 const BIN_ID  = '6a209328da38895dfe831399';
-const API_KEY = '$2a$10$IpzJSkllS20UpNdA2AtEeuvTLLC.NExJRZTrzm4AMW3kSl/tfjsGG';
+const API_KEY = '$2a$10$v3HfW5Eegx2XwTRDVLk1WOXleWg2.9GQ1f3rUiRHfULRKQOoic2RS';
 const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-const HEADERS = { 'Content-Type': 'application/json', 'X-Master-Key': API_KEY, 'X-Bin-Versioning': 'false' };
+const HEADERS = { 'Content-Type': 'application/json', 'X-Access-Key': API_KEY, 'X-Bin-Versioning': 'false' };
 
 // URL pública de GitHub Pages — actualiza esto cuando la tengas
 const PUBLIC_URL = 'https://santiagocapo.github.io/asistencia/';
@@ -278,7 +278,7 @@ if (modoMobile) {
 // JSONBIN — LEER Y ESCRIBIR
 // ══════════════════════════════════════════
 async function leerBin() {
-  const r = await fetch(BIN_URL + '/latest', { headers: { 'X-Master-Key': API_KEY } });
+  const r = await fetch(BIN_URL + '/latest', { headers: { 'X-Access-Key': API_KEY } });
   if (!r.ok) throw new Error('Error leyendo datos');
   const data = await r.json();
   return data.record;
